@@ -1,0 +1,193 @@
+{
+    "hero": {
+        "name": "Alok",
+        "title": "AI Engineer",
+        "subTitle": "Designing & Shipping Scalable AI Systems",
+        "valueStatement": "Building agentic LLM workflows, RAG pipelines, and real-time vision systems that drive business impact.",
+        "buttons": [
+            {
+                "label": "View Projects",
+                "action": "#projects",
+                "variant": "default"
+            },
+            {
+                "label": "GitHub",
+                "action": "https://github.com/Alokiitdh",
+                "variant": "outline"
+            },
+            {
+                "label": "Contact",
+                "action": "#contact",
+                "variant": "ghost"
+            }
+        ]
+    },
+    "about": {
+        "content": [
+            "I’m an AI Engineer and IIT Dharwad M.Tech graduate who enjoys building intelligent systems that actually ship.",
+            "From agentic LLM workflows and RAG pipelines to real-time computer vision and generative models, I focus on creating AI solutions that are fast, reliable, and production-ready.",
+            "I care deeply about clean system design, measurable performance improvements, and responsible AI that solves real problems."
+        ],
+        "image": "/profile.jpg"
+    },
+    "experience": [
+        {
+            "role": "AI Engineer (Full-Time)",
+            "company": "Tipstat Infotech Pvt. Ltd.",
+            "duration": "Present",
+            "highlights": [
+                "Architecting production agentic systems using FastAPI and MCP protocol",
+                "Achieved ~60% latency reduction in LLM response generation",
+                "Integrated Google Calendar and external tools for autonomous agent workflows"
+            ],
+            "quote": "Reduced latency by 60% while increasing agent autonomy."
+        },
+        {
+            "role": "AI Engineer Intern",
+            "company": "Tipstat Infotech Pvt. Ltd.",
+            "duration": "Previous",
+            "subProjects": [
+                {
+                    "name": "RAG Pipelines",
+                    "details": "Built RAG systems using LangGraph and LangChain, optimizing retrieval accuracy."
+                },
+                {
+                    "name": "Infrastructure",
+                    "details": "Dockerized FastAPI microservices for scalable deployment."
+                },
+                {
+                    "name": "Evaluation",
+                    "details": "Implemented rigorous evaluation pipelines using RAGAS and LangSmith."
+                }
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "id": "ai-interviewer",
+            "title": "AI-Interviewer",
+            "description": "Multi-agent mock interview platform utilizing LangGraph for orchestrated agent interactions.",
+            "stack": [
+                "LangGraph",
+                "Multi-Agent",
+                "LLMs",
+                "React"
+            ],
+            "github": "https://github.com/alokvishwakarmaiitdh/ai-interviewer",
+            "quote": "Simulating real-world interviews with autonomous agents.",
+            "fullDescription": "A sophisticated multi-agent system where different LLM agents take on roles of interviewer, candidate, and evaluator. Uses LangGraph for state management and orchestration, providing real-time feedback and dynamic conversation flow.",
+            "architecture": "Features a supervisor node orchestrating actor-critic agents. Frontend in React streams tokens for realtime experience."
+        },
+        {
+            "id": "askmypdf",
+            "title": "AskMyPDF",
+            "description": "High-performance RAG chatbot for chatting with PDF documents.",
+            "stack": [
+                "FastAPI",
+                "FAISS",
+                "Groq LLaMA",
+                "LangChain"
+            ],
+            "github": "https://github.com/alokvishwakarmaiitdh/askmypdf",
+            "quote": "Instant answers from lengthy documentation.",
+            "fullDescription": "Retrieval Augmented Generation system capable of ingesting large PDFs, chunking content efficiently, and retrieving contextually relevant answers using vector search (FAISS) and open-source models (Groq LLaMA).",
+            "architecture": "Ingestion pipeline -> Text Splitter -> Embedding Model -> Vector DB -> Retrieval -> LLM Generation."
+        },
+        {
+            "id": "crowdflow",
+            "title": "CrowdFlow",
+            "description": "Real-time people counting and tracking system for density analysis.",
+            "stack": [
+                "YOLOv8",
+                "SORT",
+                "OpenCV",
+                "Python"
+            ],
+            "github": "https://github.com/alokvishwakarmaiitdh/crowdflow",
+            "quote": "Real-time tracking with high occlusion robustness.",
+            "fullDescription": "Computer vision pipeline detecting and tracking individuals in video feeds. Uses YOLOv8 for detection and SORT (Simple Online and Realtime Tracking) for assigning IDs across frames.",
+            "architecture": "Frame capture -> Preprocessing -> Detection (YOLO) -> Tracking (SORT) -> Counting Logic -> Dashboard."
+        },
+        {
+            "id": "diffusion-model",
+            "title": "Diffusion Model",
+            "description": "Implementation of Denoising Diffusion Probabilistic Models (DDPM) from scratch.",
+            "stack": [
+                "PyTorch",
+                "UNet",
+                "Generative AI"
+            ],
+            "github": "https://github.com/alokvishwakarmaiitdh/diffusion-ddpm",
+            "quote": "Generating images from pure noise.",
+            "fullDescription": "Faithful implementation of the DDPM paper. Includes a custom U-Net architecture with attention mechanisms and a scheduled noise addition/removal process.",
+            "architecture": "Forward process (adding Gaussian noise) and Reverse process (learning to denoise via U-Net)."
+        },
+        {
+            "id": "dualwavenet",
+            "title": "DualWaveNet",
+            "description": "Multimodal Vision Transformer for audiovisual classification.",
+            "stack": [
+                "Transformers",
+                "PyTorch",
+                "Multimodal"
+            ],
+            "github": "https://github.com/alokvishwakarmaiitdh/dualwavenet",
+            "quote": "Fusing sight and sound for better classification.",
+            "fullDescription": "Research project exploring early vs late fusion techniques in Vision Transformers for classifying video content based on both visual and audio cues.",
+            "architecture": "Two-stream transformer architecture merging attention maps from video frames and spectrograms."
+        }
+    ],
+    "research": {
+        "thesis": {
+            "title": "FORGET – Instance-Wise Data Unlearning for Pretrained Models",
+            "focus": [
+                "Responsible AI",
+                "Privacy",
+                "Machine Unlearning"
+            ],
+            "description": "Addressed the critical need for 'right to be forgotten' in AI models. Developed methods to selectively unlearn specific data instances from pretrained models without retraining from scratch, preserving model utility while ensuring data privacy."
+        }
+    },
+    "skills": {
+        "AI & LLMs": [
+            "LLMs",
+            "RAG",
+            "LangChain",
+            "LangGraph",
+            "Agents",
+            "Prompt Engineering"
+        ],
+        "Backend & APIs": [
+            "FastAPI",
+            "Python",
+            "Docker",
+            "REST",
+            "PostgreSQL"
+        ],
+        "Computer Vision": [
+            "YOLO",
+            "OpenCV",
+            "PyTorch",
+            "Segmentation",
+            "Tracking"
+        ],
+        "Generative Models": [
+            "Diffusion Models",
+            "GANs",
+            "Transformers"
+        ],
+        "DevOps & Tools": [
+            "Git",
+            "GitHub Actions",
+            "AWS",
+            "Linux",
+            "VS Code"
+        ]
+    },
+    "contact": {
+        "email": "alok1314tp@gmail.com",
+        "github": "https://github.com/Alokiitdh",
+        "linkedin": "https://www.linkedin.com/in/alok-9a3b78384/",
+        "huggingface": "https://huggingface.co/alokvishwakarma"
+    }
+}
