@@ -18,8 +18,10 @@ export function Contact() {
                     <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
                         <Button size="lg" className="w-full md:w-auto text-lg px-8 py-6 shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300" asChild>
                             <a
-                                href={`mailto:${contact.email}?subject=${encodeURIComponent("Collaboration Inquiry")}&body=${encodeURIComponent("Hi Alok,\n\nI would like to discuss a potential collaboration.\n\nBest regards,")}`}
-                                aria-label="Send an email to Alok regarding collaboration"
+                                href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}&su=${encodeURIComponent("Collaboration Inquiry")}&body=${encodeURIComponent("Hi Alok,\n\nI would like to discuss a potential collaboration.\n\nBest regards,")}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Send an email to Alok regarding collaboration (opens in Gmail)"
                             >
                                 <Mail className="mr-2 h-5 w-5" />
                                 Send Message

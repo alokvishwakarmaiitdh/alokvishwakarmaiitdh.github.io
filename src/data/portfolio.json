@@ -34,7 +34,7 @@
         {
             "role": "AI Engineer (Full-Time)",
             "company": "Tipstat Infotech Pvt. Ltd.",
-            "duration": "Present",
+            "duration": "Nov 2025 – Present",
             "highlights": [
                 "Architecting production agentic systems using FastAPI and MCP protocol",
                 "Achieved ~60% latency reduction in LLM response generation",
@@ -45,7 +45,7 @@
         {
             "role": "AI Engineer Intern",
             "company": "Tipstat Infotech Pvt. Ltd.",
-            "duration": "Previous",
+            "duration": "May 2025 – Oct 2025",
             "subProjects": [
                 {
                     "name": "RAG Pipelines",
