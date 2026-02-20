@@ -4,8 +4,23 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import data from "@/data/portfolio.json";
 
+interface SubProject {
+    name: string;
+    details?: string;
+    bullets?: string[];
+}
+
+interface Job {
+    role: string;
+    company: string;
+    duration: string;
+    highlights?: string[];
+    subProjects?: SubProject[];
+    quote?: string;
+}
+
 export function Experience() {
-    const { experience } = data;
+    const experience = data.experience as Job[];
 
     return (
         <section id="experience" className="py-24">
@@ -55,12 +70,19 @@ export function Experience() {
                                     )}
 
                                     {job.subProjects && (
-                                        <div className="grid gap-4 md:grid-cols-2 mb-6">
+                                        <div className="flex flex-col gap-4 mb-6">
                                             {job.subProjects.map((sub, idx) => (
                                                 <Card key={idx} className="bg-muted/30 border-none">
                                                     <CardContent className="p-4">
                                                         <h4 className="font-semibold mb-1 text-sm">{sub.name}</h4>
-                                                        <p className="text-xs text-muted-foreground">{sub.details}</p>
+                                                        {sub.details && <p className="text-xs text-muted-foreground mb-2">{sub.details}</p>}
+                                                        {sub.bullets && (
+                                                            <ul className="list-disc list-outside ml-4 space-y-1 text-xs text-muted-foreground">
+                                                                {sub.bullets.map((bullet, bIdx) => (
+                                                                    <li key={bIdx}>{bullet}</li>
+                                                                ))}
+                                                            </ul>
+                                                        )}
                                                     </CardContent>
                                                 </Card>
                                             ))}
