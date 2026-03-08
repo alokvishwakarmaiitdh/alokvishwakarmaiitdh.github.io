@@ -32,23 +32,30 @@
     },
     "experience": [
         {
-            "role": "AI Engineer",
+            "role": "AI Engineer (Full-Time)",
             "company": "Tipstat Infotech Pvt. Ltd.",
-            "duration": "May 2025 – Present",
+            "duration": "Nov 2025 – Present",
             "subProjects": [
                 {
-                    "name": "HeyVision (US-Based Client — AI Productivity Platform)",
-                    "details": "Architected and delivered multiple production-grade AI agents for scheduling, meetings, and email automation.",
+                    "name": "HeyVision AI Coach Productivity Platform (US-Based Client)",
+                    "details": "Architected and delivered production-grade AI agents for scheduling, meetings, and email automation.",
                     "bullets": [
                         "Designed a LangGraph ReAct-style autonomous scheduling agent integrating Google Calendar, Outlook (Teams), and Zoom via a unified Fast MCP interface, enabling multi-calendar free/busy resolution and conflict-aware intelligent booking.",
                         "Implemented RabbitMQ for agent tool-call orchestration and Redis Pub/Sub for real-time response streaming, with scalable FastAPI-based backend services.",
                         "Built a production AI Meeting Assistant using Recall.ai to ingest meeting transcripts and metadata, followed by an LLM-powered post-meeting processing pipeline for summaries, insights, and action items, with persistence in PostgreSQL.",
-                        "Optimized end-to-end meeting processing latency from ~42s to ~16s (≈60% improvement) through async execution and inference optimization, enabling faster post-meeting execution and decision-making.",
-                        "Developed a LangGraph-based multi-agent email assistant that analyzes incoming emails and generates intent-aware reply drafts using the user’s historical emails as a knowledge base to preserve writing tone and context; integrated Google Mail and Outlook Email MCPs."
+                        "Optimized end-to-end meeting processing latency from ~42s to ~16s (≈60% improvement) through async execution and inference optimization.",
+                        "Developed a LangGraph-based multi-agent email assistant that analyzes incoming emails and generates intent-aware reply drafts using historical emails as a knowledge base; integrated Google Mail and Outlook Email MCPs."
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "role": "AI Engineer (Internship)",
+            "company": "Tipstat Infotech Pvt. Ltd.",
+            "duration": "May 2025 – Nov 2025",
+            "subProjects": [
                 {
-                    "name": "Falcon — AI Co-Pilot for High-Yield Energy Conversion",
+                    "name": "Falcon — AI Co-Pilot for High-Yield Energy Conversion (US-Based Client)",
                     "details": "Built an AI-powered decision co-pilot to optimize waste-to-energy plant operations.",
                     "bullets": [
                         "Developed a LangGraph-based multi-agent system to analyze municipal solid waste data and classify waste types (food: veg/non-veg; plastics: 7 subcategories).",
