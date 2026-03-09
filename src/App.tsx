@@ -9,7 +9,7 @@ import { Contact } from "@/sections/Contact";
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/20">
+    <div className="min-h-screen bg-background text-foreground noise-bg">
       <Navbar />
       <main>
         <Hero />
