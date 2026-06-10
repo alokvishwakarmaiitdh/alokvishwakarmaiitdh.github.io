@@ -4,10 +4,16 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import data from "@/data/portfolio.json";
 
+interface SubSection {
+    name: string;
+    bullets?: string[];
+}
+
 interface SubProject {
     name: string;
     details?: string;
     bullets?: string[];
+    subSections?: SubSection[];
 }
 
 interface Job {
@@ -90,6 +96,22 @@ export function Experience() {
                                                                 <li key={bIdx}>{bullet}</li>
                                                             ))}
                                                         </ul>
+                                                    )}
+                                                    {sub.subSections && (
+                                                        <div className="flex flex-col gap-3 mt-2">
+                                                            {sub.subSections.map((section, sIdx) => (
+                                                                <div key={sIdx} className="border-l-2 border-primary/20 pl-3">
+                                                                    <p className="text-xs font-semibold text-foreground/70 mb-1">{section.name}</p>
+                                                                    {section.bullets && (
+                                                                        <ul className="list-disc list-outside ml-4 space-y-1 text-xs text-muted-foreground/80">
+                                                                            {section.bullets.map((bullet, bIdx) => (
+                                                                                <li key={bIdx}>{bullet}</li>
+                                                                            ))}
+                                                                        </ul>
+                                                                    )}
+                                                                </div>
+                                                            ))}
+                                                        </div>
                                                     )}
                                                 </div>
                                             ))}
