@@ -32,46 +32,69 @@
     },
     "experience": [
         {
-            "role": "AI Engineer (Full-Time)",
+            "role": "AI Engineer",
             "company": "Tipstat Infotech Pvt. Ltd.",
             "duration": "Nov 2025 – Present",
             "subProjects": [
                 {
-                    "name": "HeyVision AI Coach Productivity Platform (US-Based Client)",
-                    "details": "Architected and delivered production-grade AI agents for scheduling, meetings, and email automation.",
+                    "name": "OZYN — Deep Research Agent",
                     "bullets": [
-                        "Designed a LangGraph ReAct-style autonomous scheduling agent integrating Google Calendar, Outlook (Teams), and Zoom via a unified Fast MCP interface, enabling multi-calendar free/busy resolution and conflict-aware intelligent booking.",
-                        "Implemented RabbitMQ for agent tool-call orchestration and Redis Pub/Sub for real-time response streaming, with scalable FastAPI-based backend services.",
-                        "Built a production AI Meeting Assistant using Recall.ai to ingest meeting transcripts and metadata, followed by an LLM-powered post-meeting processing pipeline for summaries, insights, and action items, with persistence in PostgreSQL.",
-                        "Optimized end-to-end meeting processing latency from ~42s to ~16s (≈60% improvement) through async execution and inference optimization.",
-                        "Developed a LangGraph-based multi-agent email assistant that analyzes incoming emails and generates intent-aware reply drafts using historical emails as a knowledge base; integrated Google Mail and Outlook Email MCPs."
+                        "Architected a two-tier orchestrator/sub-agent framework using LangGraph and Deep Agents, utilizing a DeepSeek V4 Flash classifier (100% routing accuracy, 0.9s latency) to dynamically route queries between immediate execution and collaborative, user-approved research plans.",
+                        "Built 8 custom tools (including OSM Overpass for GPS search, Exa neural search, and financial APIs) with robust fallback chains, executing up to 3 sub-agents concurrently and offloading synchronous blocking calls via asyncio.",
+                        "Engineered a two-layer cache (Redis for API data + OpenRouter prompt caching) and streamed real-time execution checkpoints over NATS JetStream to compile structured JSON block responses (interactive maps, sortable tables, and charts)."
+                    ]
+                },
+                {
+                    "name": "OZYN — Document Agent",
+                    "bullets": [
+                        "Developed an asynchronous document processing microservice using FastAPI and NATS JetStream to orchestrate background OCR, LLM-based summarization (DeepSeek V4), and multi-lingual translation jobs.",
+                        "Built a hybrid, two-tier OCR pipeline utilizing PyMuPDF for instant local text extraction (< 50ms latency) and Mistral OCR 3 API as a fallback, reducing external API consumption by an estimated 75%.",
+                        "Architected a secure and resilient system integrating PostgreSQL for transactional state tracking, Redis for message deduplication, and Cloudflare R2 with automated lifecycle policies for secure, transient file storage."
+                    ]
+                },
+                {
+                    "name": "OZYN — Github Agent",
+                    "bullets": [
+                        "Designed and built an event-driven agentic workflow engine using LangGraph and LangChain to automate 50+ granular GitHub REST API operations (pull requests, workflows, code reviews, and branch protection) from natural language commands.",
+                        "Implemented a multi-LLM dynamic fallback router supporting DeepSeek-v4-flash, MiniMax, and GPT-4o, reducing agent downtime and optimizing API token costs using a strict temperature policy (0.1).",
+                        "Developed a deterministic UUIDv7-based memory tagging algorithm to enforce message idempotency, preventing duplicate memory updates across the execution graph on NATS message redeliveries."
+                    ]
+                },
+                {
+                    "name": "HeyVision — Meeting Automation & Analytics (US Client)",
+                    "bullets": [
+                        "Designed an event-driven microservice using FastAPI, Apache Kafka, and Debezium (CDC) to orchestrate real-time meeting streams.",
+                        "Built a stateful scheduling agent using LangGraph and the Model Context Protocol (MCP) to analyze free/busy calendar data and automate bookings. Integrated Recall.ai and OpenAI LLMs for audio-to-text (STT) transcription and automated extraction of action items, summaries, and sentiment insights."
+                    ]
+                },
+                {
+                    "name": "HeyVision — AI-Powered Email Assistant (US Client)",
+                    "bullets": [
+                        "Built an event-driven email sync pipeline with the Gmail API using a Redis-backed arq worker, exposing 48 REST API endpoints.",
+                        "Developed stateful agent graphs using LangGraph and DeepSeek-V3 to run background email classification, tone analysis, and context-aware draft generation. Implemented a dual-engine search combining PostgreSQL FTS and semantic vector search using Qdrant (merged via RRF) to optimize retrieval precision."
                     ]
                 }
             ]
         },
         {
-            "role": "AI Engineer (Internship)",
+            "role": "AI Engineer (Intern)",
             "company": "Tipstat Infotech Pvt. Ltd.",
             "duration": "May 2025 – Oct 2025",
             "subProjects": [
                 {
-                    "name": "Falcon — AI Co-Pilot for High-Yield Energy Conversion (US-Based Client)",
-                    "details": "Built an AI-powered decision co-pilot to optimize waste-to-energy plant operations.",
+                    "name": "Clovix — AI-Powered Sales Intelligence & Call Assignment System (US Client)",
                     "bullets": [
-                        "Developed a LangGraph-based multi-agent system to analyze municipal solid waste data and classify waste types (food: veg/non-veg; plastics: 7 subcategories).",
-                        "Designed and exposed FastAPI endpoints for real-time inference and operator interaction.",
-                        "Evaluated system quality using RAGAS and optimized inference workflows, reducing latency from ~30s to ~12s.",
-                        "Enabled operators to optimize feedstock mix, improve plant efficiency, and maximize energy output through AI-driven insights."
+                        "Built a LLM-powered sales call analysis pipeline using GPT-4 with structured outputs, distilled to Qwen-235B to achieve a 13× cost reduction with only 2–3% accuracy tradeoff (validated via LangSmith).",
+                        "Designed a semantic call assignment engine using Qdrant Vector DB (OpenAI embeddings, cosine similarity) and Laplace-smoothed conversion scoring to rank and pair sales representatives with incoming leads.",
+                        "Implemented a UCB1 multi-armed bandit scoring algorithm to optimize lead routing workflows, balancing top-performing agents while resolving cold-start biases."
                     ]
                 },
                 {
-                    "name": "Clovix — AI-Powered CRM (US-Based Client)",
-                    "details": "Implemented an AI-driven CRM intelligence layer for sales and lead management.",
+                    "name": "Falcon — AI Co-Pilot for Waste-to-Energy Optimization (US Client)",
                     "bullets": [
-                        "Built systems for sentiment analysis, lead qualification, and conversion scoring with strict Pydantic validation to ensure data integrity.",
-                        "Integrated a Qdrant-powered semantic knowledge base for high-performance contextual retrieval.",
-                        "Designed and deployed scalable FastAPI services to expose AI inference and CRM workflows.",
-                        "Optimized system latency from ~40s to ~16s, significantly improving responsiveness for sales operations."
+                        "Built a hierarchical multi-agent research system using LangGraph + EXA to automate municipal waste data collection across government, non-government, and image-based sources.",
+                        "Optimized execution through parallel research and extraction pipelines, reducing end-to-end city analysis from days of manual work to ~3–5 minutes per city.",
+                        "Extended the platform into food waste and plastic analytics pipelines using GPT-4.1 + EXA, achieving ~92–95% accuracy at $0.015–0.04 per query."
                     ]
                 }
             ]
