@@ -37,41 +37,51 @@
             "duration": "Nov 2025 – Present",
             "subProjects": [
                 {
-                    "name": "OZYN — Deep Research Agent",
-                    "bullets": [
-                        "Architected a two-tier orchestrator/sub-agent framework using LangGraph and Deep Agents, utilizing a DeepSeek V4 Flash classifier (100% routing accuracy, 0.9s latency) to dynamically route queries between immediate execution and collaborative, user-approved research plans.",
-                        "Built 8 custom tools (including OSM Overpass for GPS search, Exa neural search, and financial APIs) with robust fallback chains, executing up to 3 sub-agents concurrently and offloading synchronous blocking calls via asyncio.",
-                        "Engineered a two-layer cache (Redis for API data + OpenRouter prompt caching) and streamed real-time execution checkpoints over NATS JetStream to compile structured JSON block responses (interactive maps, sortable tables, and charts)."
+                    "name": "OZYN",
+                    "subSections": [
+                        {
+                            "name": "Deep Research Agent",
+                            "bullets": [
+                                "Architected a two-tier orchestrator/sub-agent framework using LangGraph and Deep Agents, utilizing a DeepSeek V4 Flash classifier (100% routing accuracy, 0.9s latency) to dynamically route queries between immediate execution and collaborative, user-approved research plans.",
+                                "Built 8 custom tools (including OSM Overpass for GPS search, Exa neural search, and financial APIs) with robust fallback chains, executing up to 3 sub-agents concurrently and offloading synchronous blocking calls via asyncio.",
+                                "Engineered a two-layer cache (Redis for API data + OpenRouter prompt caching) and streamed real-time execution checkpoints over NATS JetStream to compile structured JSON block responses (interactive maps, sortable tables, and charts)."
+                            ]
+                        },
+                        {
+                            "name": "Document Agent",
+                            "bullets": [
+                                "Developed an asynchronous document processing microservice using FastAPI and NATS JetStream to orchestrate background OCR, LLM-based summarization (DeepSeek V4), and multi-lingual translation jobs.",
+                                "Built a hybrid, two-tier OCR pipeline utilizing PyMuPDF for instant local text extraction (< 50ms latency) and Mistral OCR 3 API as a fallback, reducing external API consumption by an estimated 75%.",
+                                "Architected a secure and resilient system integrating PostgreSQL for transactional state tracking, Redis for message deduplication, and Cloudflare R2 with automated lifecycle policies for secure, transient file storage."
+                            ]
+                        },
+                        {
+                            "name": "Github Agent",
+                            "bullets": [
+                                "Designed and built an event-driven agentic workflow engine using LangGraph and LangChain to automate 50+ granular GitHub REST API operations (pull requests, workflows, code reviews, and branch protection) from natural language commands.",
+                                "Implemented a multi-LLM dynamic fallback router supporting DeepSeek-v4-flash, MiniMax, and GPT-4o, reducing agent downtime and optimizing API token costs using a strict temperature policy (0.1).",
+                                "Developed a deterministic UUIDv7-based memory tagging algorithm to enforce message idempotency, preventing duplicate memory updates across the execution graph on NATS message redeliveries."
+                            ]
+                        }
                     ]
                 },
                 {
-                    "name": "OZYN — Document Agent",
-                    "bullets": [
-                        "Developed an asynchronous document processing microservice using FastAPI and NATS JetStream to orchestrate background OCR, LLM-based summarization (DeepSeek V4), and multi-lingual translation jobs.",
-                        "Built a hybrid, two-tier OCR pipeline utilizing PyMuPDF for instant local text extraction (< 50ms latency) and Mistral OCR 3 API as a fallback, reducing external API consumption by an estimated 75%.",
-                        "Architected a secure and resilient system integrating PostgreSQL for transactional state tracking, Redis for message deduplication, and Cloudflare R2 with automated lifecycle policies for secure, transient file storage."
-                    ]
-                },
-                {
-                    "name": "OZYN — Github Agent",
-                    "bullets": [
-                        "Designed and built an event-driven agentic workflow engine using LangGraph and LangChain to automate 50+ granular GitHub REST API operations (pull requests, workflows, code reviews, and branch protection) from natural language commands.",
-                        "Implemented a multi-LLM dynamic fallback router supporting DeepSeek-v4-flash, MiniMax, and GPT-4o, reducing agent downtime and optimizing API token costs using a strict temperature policy (0.1).",
-                        "Developed a deterministic UUIDv7-based memory tagging algorithm to enforce message idempotency, preventing duplicate memory updates across the execution graph on NATS message redeliveries."
-                    ]
-                },
-                {
-                    "name": "HeyVision — Meeting Automation & Analytics (US Client)",
-                    "bullets": [
-                        "Designed an event-driven microservice using FastAPI, Apache Kafka, and Debezium (CDC) to orchestrate real-time meeting streams.",
-                        "Built a stateful scheduling agent using LangGraph and the Model Context Protocol (MCP) to analyze free/busy calendar data and automate bookings. Integrated Recall.ai and OpenAI LLMs for audio-to-text (STT) transcription and automated extraction of action items, summaries, and sentiment insights."
-                    ]
-                },
-                {
-                    "name": "HeyVision — AI-Powered Email Assistant (US Client)",
-                    "bullets": [
-                        "Built an event-driven email sync pipeline with the Gmail API using a Redis-backed arq worker, exposing 48 REST API endpoints.",
-                        "Developed stateful agent graphs using LangGraph and DeepSeek-V3 to run background email classification, tone analysis, and context-aware draft generation. Implemented a dual-engine search combining PostgreSQL FTS and semantic vector search using Qdrant (merged via RRF) to optimize retrieval precision."
+                    "name": "HeyVision — AI Coach Productivity Platform (US Client)",
+                    "subSections": [
+                        {
+                            "name": "Meeting Automation & Analytics",
+                            "bullets": [
+                                "Designed an event-driven microservice using FastAPI, Apache Kafka, and Debezium (CDC) to orchestrate real-time meeting streams.",
+                                "Built a stateful scheduling agent using LangGraph and the Model Context Protocol (MCP) to analyze free/busy calendar data and automate bookings. Integrated Recall.ai and OpenAI LLMs for audio-to-text (STT) transcription and automated extraction of action items, summaries, and sentiment insights."
+                            ]
+                        },
+                        {
+                            "name": "AI-Powered Email Assistant",
+                            "bullets": [
+                                "Built an event-driven email sync pipeline with the Gmail API using a Redis-backed arq worker, exposing 48 REST API endpoints.",
+                                "Developed stateful agent graphs using LangGraph and DeepSeek-V3 to run background email classification, tone analysis, and context-aware draft generation. Implemented a dual-engine search combining PostgreSQL FTS and semantic vector search using Qdrant (merged via RRF) to optimize retrieval precision."
+                            ]
+                        }
                     ]
                 }
             ]
