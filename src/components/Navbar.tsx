@@ -61,12 +61,8 @@ export function Navbar() {
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                <a href="#" className="text-xl font-display font-bold tracking-tighter group">
-                    Alok<span className="text-gradient">.ai</span>
-                </a>
-
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-1">
+                <nav className="hidden md:flex items-center gap-1 mx-auto">
                     {navItems.map((item) => (
                         <a
                             key={item.name}

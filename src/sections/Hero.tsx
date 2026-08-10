@@ -89,12 +89,12 @@ export function Hero() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                    className="flex justify-center md:justify-end relative"
+                    className="flex justify-center md:justify-center relative"
                 >
                     {/* Gradient Ring & Glow */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-primary via-secondary to-primary blur-[80px] opacity-30 rounded-full scale-110 animate-pulse-glow" />
 
-                    <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-[3px] bg-gradient-to-br from-primary via-secondary to-primary shadow-2xl shadow-primary/20">
+                    <div className="relative w-80 h-80 md:w-[400px] md:h-[400px] rounded-full p-[3px] bg-gradient-to-br from-primary via-secondary to-primary shadow-2xl shadow-primary/20">
                         <div className="w-full h-full rounded-full overflow-hidden bg-background relative z-10">
                             <img
                                 src={data.about.image}
