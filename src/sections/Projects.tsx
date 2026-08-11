@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardContent, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Github, ExternalLink } from "lucide-react";
@@ -12,21 +11,9 @@ export function Projects() {
     const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
     return (
-        <section id="projects" className="py-28 relative">
-            {/* Background accent */}
-            <div className="absolute bottom-[10%] left-[-5%] w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
-
+        <section id="projects" className="py-12 md:py-16 relative">
             <div className="container mx-auto px-6">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mb-14 text-center"
-                >
-                    <h2 className="text-3xl font-display font-bold mb-3">Featured Projects</h2>
-                    <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-4" />
-                    <p className="text-muted-foreground">Technical deep dives into my recent work.</p>
-                </motion.div>
+                <SectionHeading label="Projects" />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {projects.map((project, index) => (
@@ -37,55 +24,77 @@ export function Projects() {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
                         >
-                            <Card
-                                className="h-full flex flex-col glass glow-border rounded-xl cursor-pointer group hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
+                            <div
+                                className="h-full flex flex-col outline-box-hover cursor-pointer group"
                                 onClick={() => setSelectedProject(project)}
                             >
-                                <CardHeader>
-                                    <div className="flex justify-between items-start">
-                                        <CardTitle className="text-lg font-display group-hover:text-gradient transition-colors duration-300">
-                                            {project.title}
-                                        </CardTitle>
-                                        <ExternalLink className="w-4 h-4 text-muted-foreground/40 group-hover:text-primary transition-colors" />
-                                    </div>
-                                    <CardDescription className="line-clamp-2 mt-2 text-sm">
+                                <div className="relative h-24 border-b border-border bg-muted flex items-center justify-center overflow-hidden">
+                                    <span className="text-4xl font-display font-bold text-muted-foreground/30">
+                                        {String(index + 1).padStart(2, "0")}
+                                    </span>
+                                    <ExternalLink className="absolute top-3 right-3 w-4 h-4 text-muted-foreground/40 group-hover:text-primary transition-colors" />
+                                </div>
+
+                                <div className="p-5 flex flex-col flex-grow">
+                                    <p className="font-mono text-xs text-muted-foreground mb-3">
+                                        {project.stack.join(" · ")}
+                                    </p>
+                                    <h3 className="text-lg font-display font-bold mb-2">
+                                        {project.title}
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground mb-4 flex-grow">
                                         {project.description}
-                                    </CardDescription>
-                                </CardHeader>
-                                <CardContent className="flex-grow">
-                                    <div className="flex flex-wrap gap-1.5 mb-5">
-                                        {project.stack.slice(0, 3).map((tech) => (
-                                            <Badge key={tech} className="text-xs bg-primary/10 text-primary/80 border-primary/10 hover:bg-primary/15 font-normal">
-                                                {tech}
-                                            </Badge>
-                                        ))}
-                                        {project.stack.length > 3 && (
-                                            <Badge className="text-xs bg-white/5 text-muted-foreground border-white/10 font-normal">
-                                                +{project.stack.length - 3}
-                                            </Badge>
-                                        )}
-                                    </div>
-                                    <div className="text-xs text-muted-foreground/60 italic border-l-2 border-primary/20 pl-3">
+                                    </p>
+                                    <p className="text-xs italic text-muted-foreground/90 border-l-2 border-primary/30 pl-3 mb-5">
                                         "{project.quote}"
-                                    </div>
-                                </CardContent>
-                                <CardFooter className="pt-0">
-                                    <Button variant="ghost" className="w-full rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 text-sm transition-all duration-300">
-                                        View Details →
+                                    </p>
+
+                                    <Button variant="terminal" size="sm" className="w-fit" asChild>
+                                        <a
+                                            href={project.github}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onClick={(e) => e.stopPropagation()}
+                                            className="flex items-center gap-2"
+                                        >
+                                            <Github className="w-3.5 h-3.5" />
+                                            Code
+                                        </a>
                                     </Button>
-                                </CardFooter>
-                            </Card>
+                                </div>
+                            </div>
                         </motion.div>
                     ))}
+
+                    {/* Fill the grid: link to the full GitHub profile */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: projects.length * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                    >
+                        <a
+                            href={data.contact.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="h-full min-h-[280px] flex flex-col items-center justify-center gap-4 outline-box-hover group"
+                        >
+                            <Github className="w-10 h-10 text-muted-foreground/50 group-hover:text-primary transition-colors" />
+                            <p className="font-display font-bold text-lg">
+                                More on GitHub <span className="text-primary">→</span>
+                            </p>
+                            <p className="text-sm text-muted-foreground">Explore all my repositories</p>
+                        </a>
+                    </motion.div>
                 </div>
 
                 {/* Project Details Modal */}
                 <Dialog open={!!selectedProject} onOpenChange={() => setSelectedProject(null)}>
-                    <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto glass border-white/10">
+                    <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto border-border">
                         {selectedProject && (
                             <>
                                 <DialogHeader>
-                                    <DialogTitle className="text-2xl font-display font-bold text-gradient">
+                                    <DialogTitle className="text-2xl font-display font-bold text-primary">
                                         {selectedProject.title}
                                     </DialogTitle>
                                     <DialogDescription className="text-base mt-2">
@@ -94,13 +103,9 @@ export function Projects() {
                                 </DialogHeader>
 
                                 <div className="space-y-6 py-4">
-                                    <div className="flex flex-wrap gap-2">
-                                        {selectedProject.stack.map(tech => (
-                                            <Badge key={tech} className="px-3 py-1 bg-primary/10 text-primary border-primary/20">
-                                                {tech}
-                                            </Badge>
-                                        ))}
-                                    </div>
+                                    <p className="font-mono text-xs text-muted-foreground">
+                                        {selectedProject.stack.join(" · ")}
+                                    </p>
 
                                     <div className="space-y-4">
                                         <div>
@@ -110,8 +115,8 @@ export function Projects() {
                                             </p>
                                         </div>
 
-                                        <div className="bg-white/[0.02] p-5 rounded-xl border border-white/[0.06]">
-                                            <h4 className="font-display font-semibold text-foreground mb-2 flex items-center gap-2">
+                                        <div className="outline-box p-5">
+                                            <h4 className="font-display font-semibold text-foreground mb-2">
                                                 Architecture
                                             </h4>
                                             <p className="text-sm text-muted-foreground font-mono leading-relaxed">
@@ -121,8 +126,8 @@ export function Projects() {
                                     </div>
                                 </div>
 
-                                <div className="flex gap-3 justify-end pt-4 border-t border-white/[0.06]">
-                                    <Button className="bg-gradient-to-r from-primary to-secondary text-white rounded-full px-6 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300" asChild>
+                                <div className="flex gap-3 justify-end pt-4 border-t border-border">
+                                    <Button variant="terminal" asChild>
                                         <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                                             <Github className="w-4 h-4" />
                                             View Code

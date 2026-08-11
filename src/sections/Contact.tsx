@@ -1,73 +1,110 @@
 import { FadeInSection } from "@/components/MotionWrapper";
+import { SectionHeading } from "@/components/SectionHeading";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Mail, Boxes } from "lucide-react";
 import data from "@/data/portfolio.json";
 
 export function Contact() {
-    const { contact } = data;
+    const { contact, hero } = data;
+
+    const socials = [
+        { href: contact.github, icon: Github, label: "GitHub" },
+        { href: contact.linkedin, icon: Linkedin, label: "LinkedIn" },
+        { href: contact.huggingface, icon: Boxes, label: "Hugging Face" },
+    ];
+
+    const mailtoHref = `https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}&su=${encodeURIComponent("Collaboration Inquiry")}&body=${encodeURIComponent("Hi Alok,\n\nI would like to discuss a potential collaboration.\n\nBest regards,")}`;
 
     return (
-        <section id="contact" className="py-28 relative">
-            {/* Background accent */}
-            <div className="absolute bottom-[20%] right-[-5%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+        <section id="contact" className="py-12 md:py-16 relative">
+            <div className="container mx-auto px-6 max-w-5xl">
+                <FadeInSection>
+                    <SectionHeading label="Contacts" />
 
-            <div className="container mx-auto px-6 max-w-4xl">
-                <FadeInSection className="relative">
-                    {/* Glow behind card */}
-                    <div className="absolute -inset-2 bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 rounded-[2rem] blur-2xl opacity-60" />
-
-                    <div className="relative glass rounded-3xl p-8 md:p-14 text-center glow-border">
-                        <h2 className="text-3xl md:text-4xl font-display font-bold mb-2">
-                            Ready to <span className="text-gradient">Collaborate</span>?
-                        </h2>
-                        <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-6" />
-                        <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed">
-                            I'm always open to discussing new AI projects, research collaborations, or engineering challenges.
-                        </p>
-
-                        <div className="flex flex-col md:flex-row gap-5 justify-center items-center">
-                            <Button
-                                size="lg"
-                                className="w-full md:w-auto text-base px-8 py-6 bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 rounded-full font-medium"
-                                asChild
-                            >
+                    <div className="grid md:grid-cols-2 gap-10 items-start">
+                        <div>
+                            <p className="text-base text-muted-foreground mb-8 leading-relaxed max-w-[45ch]">
+                                I'm always open to discussing new AI projects, research collaborations, or engineering challenges.
+                            </p>
+                            <Button variant="terminal" size="lg" className="px-8" asChild>
                                 <a
-                                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${contact.email}&su=${encodeURIComponent("Collaboration Inquiry")}&body=${encodeURIComponent("Hi Alok,\n\nI would like to discuss a potential collaboration.\n\nBest regards,")}`}
+                                    href={mailtoHref}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label="Send an email to Alok regarding collaboration (opens in Gmail)"
                                 >
-                                    <Mail className="mr-2 h-5 w-5" />
+                                    <Mail className="mr-2 h-4 w-4" />
                                     Send Message
                                 </a>
                             </Button>
+                        </div>
 
-                            <div className="flex gap-3 justify-center">
-                                {[
-                                    { href: contact.github, icon: Github, label: "GitHub" },
-                                    { href: contact.linkedin, icon: Linkedin, label: "LinkedIn" },
-                                    { href: contact.huggingface, icon: Boxes, label: "Hugging Face" },
-                                ].map(({ href, icon: Icon, label }) => (
-                                    <Button
+                        <div className="outline-box p-6">
+                            <p className="font-display font-bold mb-4">Message me here</p>
+                            <div className="space-y-3">
+                                <a
+                                    href={mailtoHref}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
+                                >
+                                    <Mail className="w-4 h-4" />
+                                    {contact.email}
+                                </a>
+                                {socials.map(({ href, icon: Icon, label }) => (
+                                    <a
                                         key={label}
-                                        variant="outline"
-                                        size="icon"
-                                        className="h-12 w-12 rounded-full border-white/10 bg-white/[0.03] hover:bg-primary/10 hover:border-primary/30 hover:-translate-y-0.5 transition-all duration-300"
-                                        asChild
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors"
                                     >
-                                        <a href={href} target="_blank" rel="noopener noreferrer">
-                                            <Icon className="h-5 w-5" />
-                                            <span className="sr-only">{label}</span>
-                                        </a>
-                                    </Button>
+                                        <Icon className="w-4 h-4" />
+                                        {label}
+                                    </a>
                                 ))}
                             </div>
                         </div>
+                    </div>
+                </FadeInSection>
 
-                        <div className="mt-20 text-xs text-muted-foreground/50">
-                            <p>© {new Date().getFullYear()} {data.hero.name}. Built with React & Vite.</p>
+                <Separator className="mt-16 mb-8" />
+
+                <FadeInSection>
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+                        <div>
+                            <p className="font-display font-bold">
+                                <span className="text-primary">{"<"}</span>
+                                {hero.name}
+                                <span className="text-primary">{"/>"}</span>
+                                <span className="text-muted-foreground font-normal ml-2 text-sm">{contact.email}</span>
+                            </p>
+                            <p className="text-sm text-muted-foreground mt-1">{hero.subTitle}</p>
+                        </div>
+
+                        <div className="flex flex-col items-center md:items-end gap-3">
+                            <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">Media</p>
+                            <div className="flex gap-4">
+                                {socials.map(({ href, icon: Icon, label }) => (
+                                    <a
+                                        key={label}
+                                        href={href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-muted-foreground hover:text-primary transition-colors"
+                                        aria-label={label}
+                                    >
+                                        <Icon className="w-5 h-5" />
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     </div>
+
+                    <p className="text-center text-xs text-muted-foreground/70 mt-10">
+                        © {new Date().getFullYear()} {hero.name}. Built with React & Vite.
+                    </p>
                 </FadeInSection>
             </div>
         </section>

@@ -197,39 +197,58 @@
         }
     },
     "skills": {
-        "AI & LLMs": [
-            "LLMs",
-            "RAG",
+        "Languages & Backend Frameworks": [
+            "Python",
+            "C++",
+            "SQL",
+            "FastAPI",
+            "Flask",
+            "Streamlit",
+            "REST APIs",
+            "Async Processing"
+        ],
+        "AI, LLMs & Agentic Systems": [
             "LangChain",
             "LangGraph",
-            "Agents",
-            "Prompt Engineering"
-        ],
-        "Backend & APIs": [
-            "FastAPI",
-            "Python",
-            "Docker",
-            "REST",
-            "PostgreSQL"
-        ],
-        "Computer Vision": [
-            "YOLO",
-            "OpenCV",
+            "MCP",
+            "Multi-Agent Systems",
+            "Hybrid/Agentic RAG",
+            "Prompt Engineering",
+            "Fine-tuning",
+            "Embeddings",
+            "Transformers",
             "PyTorch",
-            "Segmentation",
-            "Tracking"
+            "Hugging Face",
+            "OpenAI API",
+            "DeepSeek",
+            "LangSmith",
+            "LangFuse",
+            "RAGAS",
+            "Model Evaluation",
+            "NLP"
         ],
-        "Generative Models": [
-            "Diffusion Models",
-            "GANs",
-            "Transformers"
+        "Databases, Retrieval & Messaging": [
+            "PostgreSQL",
+            "Redis",
+            "Qdrant",
+            "FAISS",
+            "Vector/Semantic Search",
+            "BM25",
+            "RRF",
+            "Apache Kafka",
+            "RabbitMQ",
+            "Debezium",
+            "Redis Pub/Sub"
         ],
-        "DevOps & Tools": [
-            "Git",
-            "GitHub Actions",
+        "Cloud, DevOps & Infrastructure": [
+            "Docker",
+            "Kubernetes",
             "AWS",
-            "Linux",
-            "VS Code"
+            "Hetzner",
+            "Oracle Cloud",
+            "Git",
+            "CI/CD (GitHub Actions)",
+            "MLOps"
         ]
     },
     "contact": {
