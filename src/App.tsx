@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/Navbar";
+import { NeuralBackground } from "@/components/NeuralBackground";
 import { SocialRail } from "@/components/SocialRail";
 import { Hero } from "@/sections/Hero";
 import { About } from "@/sections/About";
@@ -10,7 +11,8 @@ import { Contact } from "@/sections/Contact";
 
 function App() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
+      <NeuralBackground />
       <SocialRail />
       <Navbar />
       <main className="lg:pl-20">
