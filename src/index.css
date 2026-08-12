@@ -6,46 +6,46 @@
   :root {
     --background: 220 20% 97%;
     --foreground: 230 25% 10%;
-    --card: 0 0% 100%;
+    --card: 220 20% 97%;
     --card-foreground: 230 25% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 230 25% 10%;
-    --primary: 262 83% 58%;
+    --primary: 266 70% 45%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 174 72% 46%;
+    --secondary: 220 14% 92%;
     --secondary-foreground: 230 25% 10%;
     --muted: 220 14% 92%;
-    --muted-foreground: 220 8% 46%;
-    --accent: 262 83% 58%;
+    --muted-foreground: 220 8% 40%;
+    --accent: 266 70% 45%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 220 13% 87%;
-    --input: 220 13% 87%;
-    --ring: 262 83% 58%;
-    --radius: 0.75rem;
+    --border: 220 15% 65%;
+    --input: 220 15% 65%;
+    --ring: 266 70% 45%;
+    --radius: 0.125rem;
   }
 
   .dark {
-    --background: 230 25% 5%;
+    --background: 235 15% 14%;
     --foreground: 220 20% 95%;
-    --card: 230 22% 8%;
+    --card: 235 15% 17%;
     --card-foreground: 220 20% 95%;
-    --popover: 230 25% 5%;
+    --popover: 235 15% 14%;
     --popover-foreground: 220 20% 95%;
-    --primary: 265 89% 63%;
+    --primary: 266 85% 65%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 174 85% 48%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 230 18% 12%;
-    --muted-foreground: 220 12% 58%;
-    --accent: 265 89% 63%;
+    --secondary: 235 12% 22%;
+    --secondary-foreground: 220 20% 95%;
+    --muted: 235 12% 22%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 266 85% 65%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 100%;
-    --border: 230 15% 15%;
-    --input: 230 15% 15%;
-    --ring: 265 89% 63%;
+    --border: 235 12% 42%;
+    --input: 235 12% 42%;
+    --ring: 266 85% 65%;
   }
 }
 
@@ -58,48 +58,27 @@
     scroll-behavior: smooth;
   }
 
+  section[id] {
+    scroll-margin-top: 4.5rem;
+  }
+
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    font-family: 'Space Mono', 'JetBrains Mono', ui-monospace, monospace;
   }
 }
 
-/* Noise texture overlay for premium feel */
 @layer utilities {
-  .noise-bg::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: 0.025;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  .outline-box {
+    @apply border border-border rounded-sm bg-transparent;
   }
 
-  .text-gradient {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
-  }
-
-  .glass {
-    @apply bg-card/60 backdrop-blur-xl border border-white/[0.08];
-  }
-
-  .glow-border {
-    @apply border border-primary/20;
-    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.15);
-  }
-
-  .glow-border:hover {
-    @apply border-primary/40;
-    box-shadow: 0 0 30px -5px hsl(var(--primary) / 0.3);
+  .outline-box-hover {
+    @apply border border-border rounded-sm bg-transparent hover:border-primary transition-colors duration-300;
   }
 }
 
