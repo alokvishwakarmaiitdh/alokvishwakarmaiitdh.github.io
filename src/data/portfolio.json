@@ -121,7 +121,7 @@
                 "LLMs",
                 "React"
             ],
-            "github": "https://github.com/alokvishwakarmaiitdh/ai-interviewer",
+            "github": "https://github.com/Alokiitdh/ai_interviewer",
             "quote": "Simulating real-world interviews with autonomous agents.",
             "fullDescription": "A sophisticated multi-agent system where different LLM agents take on roles of interviewer, candidate, and evaluator. Uses LangGraph for state management and orchestration, providing real-time feedback and dynamic conversation flow.",
             "architecture": "Features a supervisor node orchestrating actor-critic agents. Frontend in React streams tokens for realtime experience."
@@ -136,7 +136,7 @@
                 "Groq LLaMA",
                 "LangChain"
             ],
-            "github": "https://github.com/alokvishwakarmaiitdh/askmypdf",
+            "github": "https://github.com/Alokiitdh/ask_my_pdf",
             "quote": "Instant answers from lengthy documentation.",
             "fullDescription": "Retrieval Augmented Generation system capable of ingesting large PDFs, chunking content efficiently, and retrieving contextually relevant answers using vector search (FAISS) and open-source models (Groq LLaMA).",
             "architecture": "Ingestion pipeline -> Text Splitter -> Embedding Model -> Vector DB -> Retrieval -> LLM Generation."
@@ -151,7 +151,7 @@
                 "OpenCV",
                 "Python"
             ],
-            "github": "https://github.com/alokvishwakarmaiitdh/crowdflow",
+            "github": "https://github.com/Alokiitdh/CrowdFlow",
             "quote": "Real-time tracking with high occlusion robustness.",
             "fullDescription": "Computer vision pipeline detecting and tracking individuals in video feeds. Uses YOLOv8 for detection and SORT (Simple Online and Realtime Tracking) for assigning IDs across frames.",
             "architecture": "Frame capture -> Preprocessing -> Detection (YOLO) -> Tracking (SORT) -> Counting Logic -> Dashboard."
@@ -165,7 +165,7 @@
                 "UNet",
                 "Generative AI"
             ],
-            "github": "https://github.com/alokvishwakarmaiitdh/diffusion-ddpm",
+            "github": "https://github.com/Alokiitdh/Diffusion-Model",
             "quote": "Generating images from pure noise.",
             "fullDescription": "Faithful implementation of the DDPM paper. Includes a custom U-Net architecture with attention mechanisms and a scheduled noise addition/removal process.",
             "architecture": "Forward process (adding Gaussian noise) and Reverse process (learning to denoise via U-Net)."
@@ -179,7 +179,7 @@
                 "PyTorch",
                 "Multimodal"
             ],
-            "github": "https://github.com/alokvishwakarmaiitdh/dualwavenet",
+            "github": "https://github.com/Alokiitdh/DualWaveNet",
             "quote": "Fusing sight and sound for better classification.",
             "fullDescription": "Research project exploring early vs late fusion techniques in Vision Transformers for classifying video content based on both visual and audio cues.",
             "architecture": "Two-stream transformer architecture merging attention maps from video frames and spectrograms."
