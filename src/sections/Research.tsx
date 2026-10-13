@@ -1,38 +1,29 @@
-import { FadeInSection } from "@/components/MotionWrapper";
 import { SectionHeading } from "@/components/SectionHeading";
-import { BookOpen } from "lucide-react";
 import data from "@/data/portfolio.json";
 
 export function Research() {
-    const { research } = data;
+    const { thesis } = data.research;
 
     return (
-        <section id="research" className="py-12 md:py-16 relative">
-            <div className="container mx-auto px-6 max-w-4xl">
-                <FadeInSection>
-                    <SectionHeading label="Research" />
-                </FadeInSection>
+        <section id="research" className="mb-20 md:mb-28 lg:scroll-mt-24" aria-label="Research">
+            <SectionHeading label="Research" />
 
-                <FadeInSection delay={0.1}>
-                    <div className="outline-box-hover p-6 md:p-8">
-                        <div className="flex items-center gap-2 mb-3 text-muted-foreground">
-                            <BookOpen className="w-4 h-4 text-primary" />
-                            <span className="text-xs font-semibold tracking-widest uppercase">
-                                M.Tech Thesis
-                            </span>
-                        </div>
-                        <h3 className="text-xl md:text-2xl font-display font-bold mb-4 text-primary leading-tight">
-                            {research.thesis.title}
-                        </h3>
-                        <p className="text-base text-muted-foreground mb-4 leading-relaxed text-justify">
-                            {research.thesis.description}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                            {research.thesis.focus.join(", ")}
-                        </p>
-                    </div>
-                </FadeInSection>
-            </div>
+            <article className="grid gap-2 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                <p className="font-mono text-xs uppercase tracking-wide text-muted-foreground pt-1">
+                    M.Tech Thesis
+                </p>
+                <div className="min-w-0">
+                    <h3 className="font-semibold leading-snug">{thesis.title}</h3>
+                    <p className="mt-3 text-sm text-muted-foreground leading-relaxed text-justify hyphens-auto">{thesis.description}</p>
+                    <ul className="mt-4 flex flex-wrap gap-1.5" aria-label="Focus areas">
+                        {thesis.focus.map((f) => (
+                            <li key={f} className="rounded-full bg-primary/10 px-2.5 py-0.5 font-mono text-[11px] text-primary">
+                                {f}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </article>
         </section>
     );
 }
