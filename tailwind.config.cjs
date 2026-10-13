@@ -8,9 +8,9 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
-                display: ['Space Mono', 'JetBrains Mono', 'ui-monospace', 'monospace'],
-                mono: ['JetBrains Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
+                sans: ['IBM Plex Sans', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+                display: ['IBM Plex Sans', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+                mono: ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace'],
             },
             borderRadius: {
                 lg: 'var(--radius)',
@@ -51,17 +51,6 @@ module.exports = {
                     DEFAULT: "hsl(var(--card))",
                     foreground: "hsl(var(--card-foreground))",
                 },
-            },
-            keyframes: {
-                'float': {
-                    '0%, 100%': { transform: 'translateY(0px)' },
-                    '50%': { transform: 'translateY(-20px)' },
-                },
-            },
-            animation: {
-                'float': 'float 6s ease-in-out infinite',
-                'float-slow': 'float 8s ease-in-out infinite',
-                'float-slower': 'float 10s ease-in-out infinite',
             },
         }
     },

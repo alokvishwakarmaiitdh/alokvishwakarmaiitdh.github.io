@@ -42,7 +42,7 @@
                         {
                             "name": "Deep Research Agent",
                             "bullets": [
-                                "Architected a two-tier orchestrator/sub-agent framework using LangGraph and Deep Agents, utilizing a DeepSeek V4 Flash classifier (100% routing accuracy, 0.9s latency) to dynamically route queries between immediate execution and collaborative, user-approved research plans.",
+                                "Architected a two-tier orchestrator/sub-agent framework using LangGraph and Deep Agents, utilizing a DeepSeek V4 Flash classifier (98% routing accuracy, 0.9s latency) to dynamically route queries between immediate execution and collaborative, user-approved research plans.",
                                 "Built 8 custom tools (including OSM Overpass for GPS search, Exa neural search, and financial APIs) with robust fallback chains, executing up to 3 sub-agents concurrently and offloading synchronous blocking calls via asyncio.",
                                 "Engineered a two-layer cache (Redis for API data + OpenRouter prompt caching) and streamed real-time execution checkpoints over NATS JetStream to compile structured JSON block responses (interactive maps, sortable tables, and charts)."
                             ]
